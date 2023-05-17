@@ -1,10 +1,23 @@
-/* Header */
-.header-section {
-  display: flex;
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.header {
+/* Header */
+
+.header-wrapper {
   display: flex;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}
+
+.header-container {
+  display: flex;
+  position: sticky;
+  z-index: 1;
+  top: 0;
   justify-content: space-between;
   background: #ffffff;
   width: 100%;
@@ -19,25 +32,27 @@
   align-items: center;
 }
 
-.logo {
+.header-logo-image {
   width: 55px;
   height: 30px;
   margin-right: 12px;
 }
 
-h1 {
-  margin: 0px;
+.header-logo-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
 }
 
-.hamburger {
+.header-hamburger-icon {
   width: 30px;
   height: 20px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* dropdown */
-.dropdown-section {
+.header-dropdown {
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -45,7 +60,7 @@ h1 {
   height: 100%;
 }
 
-.dropdown-section:hover .dropdown {
+.header-dropdown:hover .dropdown {
   display: block;
 }
 
@@ -53,14 +68,13 @@ h1 {
   display: none;
   width: 200px;
   position: absolute;
-  /* padding: 0px; */
   background: #ffffff;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
   filter: drop-shadow(rgba(0, 0, 0, 0.18) 0px 4px 10px);
   margin: 220px -18px 0px 0px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .dropdown:after {
@@ -70,7 +84,6 @@ h1 {
   border-width: 0 15px 15px;
   border-color: #ffffff transparent;
   display: block;
-  width: 0;
   z-index: 1;
   top: -10px;
   left: 150px;
@@ -89,20 +102,15 @@ h1 {
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
 }
 
-.product {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-}
-
-.bookmark {
+.product-dropdown-icon,
+.bookmark-dropdown-icon {
   width: 20px;
   height: 20px;
   margin-right: 8px;
 }
 
 /* footer */
-.footer-section {
+.footer-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -112,10 +120,130 @@ h1 {
   background: #ffffff;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   bottom: 0;
-  position: absolute;
+  position: fixed;
 }
 
-.footer {
+.footer-text {
   font-size: 12px;
   color: #888888;
+}
+
+/* MainPage */
+.main-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  font-size: 24px;
+  padding: 24px 76px;
+}
+
+.product-wrapper {
+  /* border: 1px solid blue; */
+  margin-bottom: 20px;
+}
+
+.product-list-title {
+  /* border: 1px solid skyblue; */
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.bookmark-wrapper {
+  /* border: 1px solid green; */
+}
+
+.bookmark-list-title {
+  /* border: 1px solid greenyellow; */
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+/* item */
+.item-list,
+.bookmark-list {
+  display: flex;
+  /* justify-content: space-between; */
+  list-style: none;
+  max-width: 100%;
+}
+
+.item {
+  display: inline-block;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* margin: 24px; */
+}
+
+.item-container {
+  position: relative;
+  display: inline-block;
+}
+
+.item-image {
+  width: 264px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 10px;
+  flex-grow: 0;
+  z-index: 1;
+}
+
+.item-bookmark {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  bottom: 20px;
+  right: 20px;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+}
+
+.item:last-child .item-bookmark {
+  /* 마지막 요소의 정보에 대한 스타일 */
+  right: 10px; /* 마지막 이미지의 오른쪽 여백을 0으로 설정 */
+}
+
+.item:last-child .item-image,
+.item-info {
+  /* 마지막 요소의 이미지에 대한 스타일 */
+  margin-right: 0; /* 마지막 이미지의 오른쪽 여백을 0으로 설정 */
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.item-info-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-brand-name,
+.item-title {
+  font-weight: 700;
+}
+
+.item-client {
+  font-weight: 500;
+}
+
+.item-discount {
+  color: #452cdd;
+  font-weight: 800;
+}
+
+.item-price,
+.item-follower {
+  display: flex;
+  justify-content: end;
+  font-weight: 400;
 }
