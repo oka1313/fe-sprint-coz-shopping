@@ -1,0 +1,83 @@
+.list {
+  display: flex;
+  /* justify-content: space-between; */
+  /* justify-content: center; */
+  list-style: none;
+  max-width: 100%;
+}
+
+.item {
+  display: inline-block;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* margin: 24px; */
+}
+
+.container {
+  display: flex;
+  position: relative;
+  display: inline-block;
+}
+
+.image {
+  display: flex;
+  width: 264px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 24px;
+  flex-grow: 0;
+  z-index: 1;
+}
+
+.bookmark {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  bottom: 10px;
+  right: 32px;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+}
+
+.item:last-child .bookmark {
+  right: 10px;
+}
+
+.item:last-child .image,
+.info {
+  margin-right: 0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  font-size: 16px;
+  margin-right: 24px;
+}
+
+.info_top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.brand_name,
+.title {
+  font-weight: 700;
+}
+
+.client {
+  font-weight: 500;
+}
+
+.discount {
+  color: #452cdd;
+  font-weight: 800;
+}
+
+.price,
+.follower {
+  display: flex;
+  justify-content: end;
+  font-weight: 400;
+}
