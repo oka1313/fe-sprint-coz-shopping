@@ -1,0 +1,47 @@
+.dropdown {
+  display: block;
+  width: 200px;
+  position: absolute;
+  background: #ffffff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.18) 0px 4px 10px);
+  margin: 220px -18px 0px 0px;
+  z-index: 2;
+}
+
+.dropdown:after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 0 15px 15px;
+  border-color: #ffffff transparent;
+  display: block;
+  z-index: 1;
+  top: -10px;
+  left: 150px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  font-size: 16px;
+  padding-left: 16px;
+}
+
+.list:not(:first-of-type) {
+  cursor: pointer;
+}
+
+.list:not(:last-of-type) {
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.product_icon,
+.bookmark_icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
