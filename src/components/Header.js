@@ -8,19 +8,23 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="header-section">
-      <div className="header">
+    <div className="header-wrapper">
+      <div className="header-container">
         <div
           onClick={() => {
             navigate("/");
           }}
           className="header-logo"
         >
-          <img className="logo" src={logo} alt="logo" />
-          <h1>COZ Shopping</h1>
+          <img className="header-logo-image" src={logo} alt="logo" />
+          <h1 className="header-logo-title">COZ Shopping</h1>
         </div>
-        <div className="dropdown-section">
-          <img className="hamburger" src={hamburger} alt="hamburger" />
+        <div className="header-dropdown">
+          <img
+            className="header-hamburger-icon"
+            src={hamburger}
+            alt="hamburger"
+          />
           <Dropdown />
         </div>
       </div>
