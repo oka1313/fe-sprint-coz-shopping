@@ -2,34 +2,38 @@ main {
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
-  /* align-items: center; */
+  align-items: center;
   /* border: 1px solid red; */
   font-size: 24px;
-  padding: 24px 394px;
+  padding: 24px 0px;
 }
 
 .product_container {
   /* border: 1px solid blue; */
   margin-bottom: 20px;
+  width: 60%;
 }
 
 .product_list_title {
   /* border: 1px solid skyblue; */
-  font-style: normal;
   font-weight: 600;
   font-size: 24px;
   margin-bottom: 12px;
+  text-align: left;
+  width: 100%; /* 100% 너비 설정 */
+  box-sizing: border-box; /* 너비에 padding과 border를 포함시킴 */
 }
 
 .bookmark_container {
   /* border: 1px solid green; */
   margin-bottom: 12px;
+  width: 60%;
 }
 
 .bookmark_list_title {
   /* border: 1px solid greenyellow; */
-  font-style: normal;
   font-weight: 600;
   font-size: 24px;
   margin-bottom: 12px;
+  text-align: left;
 }
