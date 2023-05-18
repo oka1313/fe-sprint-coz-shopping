@@ -2,7 +2,7 @@ import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import MainPage from "./pages/MainPage/MainPage";
-import ProductsListPage from "./pages/ProductsListPage";
+import ProductsListPage from "./pages/ProductsListPage/ProductsListPage";
 import BookmarkPage from "./pages/BookmarkPage";
 import { Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
