@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Item from "../../components/Item/Item";
 import Bookmark from "../../components/Bookmark/Bookmark";
+import List from "../../components/List/List";
 import styles from "./MainPage.module.css";
 
 const MainPage = ({ sliceItems }) => {
   // 이전에 북마크된 항목들의 배열(bookmarkedItems)을 가져온다.
   const [bookmarkedItems, setBookmarkedItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
 
   const Brand = "Brand"; // 실수하기 쉬운 문자열 상수화하기
   const Product = "Product";
@@ -27,11 +29,27 @@ const MainPage = ({ sliceItems }) => {
     });
   };
 
+  useEffect(() => {
+    const updatedItems = sliceItems.filter((item) =>
+      bookmarkedItems.includes(item)
+    );
+    setFilteredItems(updatedItems);
+    localStorage.setItem("filteredItems", JSON.stringify(updatedItems));
+  }, [sliceItems, bookmarkedItems]);
+
+  useEffect(() => {
+    const storedItems = localStorage.getItem("filteredItems");
+    if (storedItems) {
+      const parsedItems = JSON.parse(storedItems);
+      setFilteredItems(parsedItems);
+    }
+  }, []);
+
   return (
     <main>
       <section className={styles.product_container}>
         <div className={styles.product_list_title}>상품 리스트</div>
-        <Item
+        <List
           key={sliceItems.id}
           items={sliceItems}
           bookmarkedItems={bookmarkedItems}
@@ -44,8 +62,9 @@ const MainPage = ({ sliceItems }) => {
       </section>
       <section className={styles.bookmark_container}>
         <div className={styles.bookmark_list_title}>북마크 리스트</div>
-        <Bookmark
-          items={sliceItems}
+        <List
+          key={filteredItems.id}
+          items={filteredItems}
           bookmarkedItems={bookmarkedItems}
           handleBookmark={handleBookmark}
           Brand={Brand}
